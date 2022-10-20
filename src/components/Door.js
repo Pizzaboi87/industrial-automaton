@@ -18,7 +18,7 @@ const Door = () => {
             <img 
                 className="lock" 
                 id="lock" 
-                src="../images/lock.jpg" 
+                src="../images/lock_n.jpg" 
                 alt="lock" 
                 onClick={opener}
             />

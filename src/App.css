@@ -26,13 +26,13 @@ body {
 }
 
 .left {
-  background-image: url(../public/images/left.jpg);
+  background-image: url(../public/images/left_n.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .right {
-  background-image: url(../public/images/right.jpg);
+  background-image: url(../public/images/right_n.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }

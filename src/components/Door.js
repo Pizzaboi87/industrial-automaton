@@ -15,7 +15,7 @@ const Door = () => {
         <div className="door" id="door">
             <div className="left" id="left"></div>
             <div className="right" id="right"></div>
-            <img 
+            <img  
                 className="lock" 
                 id="lock" 
                 src="../images/lock_n.jpg" 

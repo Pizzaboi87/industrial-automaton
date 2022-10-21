@@ -1,14 +1,51 @@
 import './App.css';
-import Door from './components/Door';
-import Header from './components/Header'
-import Main from './components/Main';
+import { Suspense, useEffect } from 'react';
+import React from 'react';
 
-function App() {
+const App = () => {
+const Door = React.lazy(() => import('./components/Door'));
+const Header = React.lazy(() => import('./components/Header'));
+const Main = React.lazy(() => import('./components/Main'))
+
+
+let fullfilled = false;
+let promise = null;
+const useTimeout = (ms) => {
+    if (!fullfilled) {
+        throw promise || (promise = new Promise((res) => {
+            setTimeout(() => {
+                fullfilled = true;
+                res();
+            }, ms);
+        }));
+    }
+};
+
+useEffect(() => {
+  window.addEventListener('load', Test)
+})
+
+const Test = () => {
+    useTimeout(2000);
+    return (
+      <div className="App">
+        <Door />
+        <Header />
+        <Main />
+      </div>
+    );
+};
+
+
   return (
-    <div className="App">
-      <Door />
-      <Header />
-      <Main />
+    <div>
+      <Suspense fallback={
+        <div className="loading">
+          <img src="../images/bb8.gif" alt="loading" />
+          <h1>Loading...</h1>
+        </div> }>
+          <Test />
+      </Suspense>
     </div>
   );
 }

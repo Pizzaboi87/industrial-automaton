@@ -2,14 +2,16 @@ import './App.css';
 import { Suspense } from 'react';
 import React from 'react';
 
+const App = () => {
 const Door = React.lazy(() => import('./components/Door'));
 const Header = React.lazy(() => import('./components/Header'));
 const Main = React.lazy(() => import('./components/Main'))
 
+
 let fullfilled = false;
 let promise = null;
 const useTimeout = (ms) => {
-    if (!fullfilled && document.readyState === "complete") {
+    if (!fullfilled) {
         throw promise || (promise = new Promise((res) => {
             setTimeout(() => {
                 fullfilled = true;
@@ -19,7 +21,7 @@ const useTimeout = (ms) => {
     }
 };
 const Test = () => {
-    useTimeout(4000);
+    useTimeout(2000);
     return (
       <div className="App">
         <Door />
@@ -29,7 +31,7 @@ const Test = () => {
     );
 };
 
-const App = () => {
+
   return (
     <div>
       <Suspense fallback={

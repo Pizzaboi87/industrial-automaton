@@ -6,11 +6,10 @@ const Door = React.lazy(() => import('./components/Door'));
 const Header = React.lazy(() => import('./components/Header'));
 const Main = React.lazy(() => import('./components/Main'))
 
-
 let fullfilled = false;
 let promise = null;
 const useTimeout = (ms) => {
-    if (!fullfilled) {
+    if (!fullfilled && document.readyState === "complete") {
         throw promise || (promise = new Promise((res) => {
             setTimeout(() => {
                 fullfilled = true;
@@ -29,8 +28,6 @@ const Test = () => {
       </div>
     );
 };
-
-
 
 const App = () => {
   return (

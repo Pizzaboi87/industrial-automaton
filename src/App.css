@@ -10,6 +10,14 @@ body {
   font-family: 'Days One', sans-serif;
   height: 100%;
   position: fixed;
+}
+
+.App {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
   background-image: url('../public/images/room.jpg');
   background-size: auto;
   background-color: white;

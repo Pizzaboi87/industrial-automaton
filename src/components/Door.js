@@ -13,9 +13,10 @@ const Door = () => {
 
     return (
         <div className="door" id="door">
-            <div className="left" id="left"></div>
-            <div className="right" id="right"></div>
+            <div loading="eager" className="left" id="left"></div>
+            <div loading="eager" className="right" id="right"></div>
             <img 
+                loading="eager" 
                 className="lock" 
                 id="lock" 
                 src="../images/lock_n.jpg" 

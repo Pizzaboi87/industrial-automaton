@@ -1,5 +1,5 @@
 import './App.css';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import React from 'react';
 
 const App = () => {
@@ -20,6 +20,11 @@ const useTimeout = (ms) => {
         }));
     }
 };
+
+useEffect(() => {
+  window.addEventListener('load', Test)
+})
+
 const Test = () => {
     useTimeout(2000);
     return (

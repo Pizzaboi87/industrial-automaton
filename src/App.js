@@ -9,7 +9,7 @@ const Main = React.lazy(() => import('./components/Main'))
 let fullfilled = false;
 let promise = null;
 const useTimeout = (ms) => {
-    if (!fullfilled && document.readyState === "complete") {
+    if (fullfilled && document.readyState === "complete") {
         throw promise || (promise = new Promise((res) => {
             setTimeout(() => {
                 fullfilled = true;

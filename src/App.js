@@ -1,12 +1,11 @@
 import './App.css';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import React from 'react';
+import Door from './components/Door'
 
 const App = () => {
-const Door = React.lazy(() => import('./components/Door'));
 const Header = React.lazy(() => import('./components/Header'));
 const Main = React.lazy(() => import('./components/Main'))
-
 
 let fullfilled = false;
 let promise = null;
@@ -21,21 +20,15 @@ const useTimeout = (ms) => {
     }
 };
 
-useEffect(() => {
-  window.addEventListener('load', Test)
-})
-
 const Test = () => {
-    useTimeout(2000);
+    useTimeout(3000);
     return (
       <div className="App">
-        <Door />
         <Header />
         <Main />
       </div>
     );
 };
-
 
   return (
     <div>
@@ -46,6 +39,7 @@ const Test = () => {
         </div> }>
           <Test />
       </Suspense>
+      <Door />
     </div>
   );
 }
